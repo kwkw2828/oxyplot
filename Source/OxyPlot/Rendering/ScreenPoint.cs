@@ -16,7 +16,7 @@ namespace OxyPlot
     /// Represents a point defined in screen space.
     /// </summary>
     /// <remarks>The rendering methods transforms <see cref="DataPoint" />s to <see cref="ScreenPoint" />s.</remarks>
-    public struct ScreenPoint : IEquatable<ScreenPoint>
+    public readonly struct ScreenPoint : IEquatable<ScreenPoint>
     {
         /// <summary>
         /// The undefined point.
@@ -28,14 +28,14 @@ namespace OxyPlot
         /// </summary>
         [SuppressMessage("StyleCop.CSharp.NamingRules", "SA1307:AccessibleFieldsMustBeginWithUpperCaseLetter", Justification = "Reviewed. Suppression is OK here.")]
         // ReSharper disable once InconsistentNaming
-        internal double x;
+        internal readonly double x;
 
         /// <summary>
         /// The y-coordinate.
         /// </summary>
         [SuppressMessage("StyleCop.CSharp.NamingRules", "SA1307:AccessibleFieldsMustBeginWithUpperCaseLetter", Justification = "Reviewed. Suppression is OK here.")]
         // ReSharper disable once InconsistentNaming
-        internal double y;
+        internal readonly double y;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ScreenPoint" /> struct.
@@ -158,6 +158,34 @@ namespace OxyPlot
         public bool Equals(ScreenPoint other)
         {
             return this.x.Equals(other.x) && this.y.Equals(other.y);
+        }
+
+        /// <inheritdoc/>
+        public override bool Equals(object obj)
+        {
+            return obj is ScreenPoint p && this.Equals(p);
+        }
+
+        /// <inheritdoc/>
+        public static bool operator ==(ScreenPoint left, ScreenPoint right)
+        {
+            return left.Equals(right);
+        }
+
+        /// <inheritdoc/>
+        public static bool operator !=(ScreenPoint left, ScreenPoint right)
+        {
+            return !(left == right);
+        }
+
+        /// <inheritdoc/>
+        public override int GetHashCode()
+        {
+#if NET6_0_OR_GREATER
+            return HashCode.Combine(this.x, this.y);
+#else
+            return (this.x.GetHashCode() * 397) ^ this.y.GetHashCode();
+#endif
         }
     }
 }

@@ -18,7 +18,7 @@ namespace OxyPlot
     /// Represents a point in the data space.
     /// </summary>
     /// <remarks><see cref="DataPoint" />s are transformed to <see cref="ScreenPoint" />s.</remarks>
-    public struct DataPoint : ICodeGenerating, IEquatable<DataPoint>
+    public readonly struct DataPoint : ICodeGenerating, IEquatable<DataPoint>
     {
         /// <summary>
         /// The undefined.
@@ -91,6 +91,34 @@ namespace OxyPlot
         public bool Equals(DataPoint other)
         {
             return this.x.Equals(other.x) && this.y.Equals(other.y);
+        }
+
+        /// <inheritdoc/>
+        public override bool Equals(object? obj)
+        {
+            return obj is DataPoint p && this.Equals(p);
+        }
+
+        /// <inheritdoc/>
+        public static bool operator ==(DataPoint left, DataPoint right)
+        {
+            return left.Equals(right);
+        }
+
+        /// <inheritdoc/>
+        public static bool operator !=(DataPoint left, DataPoint right)
+        {
+            return !(left == right);
+        }
+
+        /// <inheritdoc/>
+        public override int GetHashCode()
+        {
+#if NET6_0_OR_GREATER
+            return HashCode.Combine(this.x, this.y);
+#else
+            return (this.x.GetHashCode() * 397) ^ this.y.GetHashCode();
+#endif
         }
 
         /// <summary>

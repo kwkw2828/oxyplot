@@ -106,28 +106,28 @@ namespace OxyPlot.Axes
                     ha = HorizontalAlignment.Center;
                     va = VerticalAlignment.Top;
                     // add some margin
-                    pt.y += axis.AxisTickToLabelDistance;
+                    pt = new ScreenPoint(pt.X, pt.Y + axis.AxisTickToLabelDistance);
                 }
                 //bottom
                 else if (pt.Y >= plotrect.Bottom)
                 {
                     ha = HorizontalAlignment.Center;
                     va = VerticalAlignment.Bottom;
-                    pt.y -= axis.AxisTickToLabelDistance;
+                    pt = new ScreenPoint(pt.X, pt.Y - axis.AxisTickToLabelDistance);
                 }
                 //left
                 else if (pt.X <= plotrect.Left)
                 {
                     ha = HorizontalAlignment.Left;
                     va = VerticalAlignment.Middle;
-                    pt.x += axis.AxisTickToLabelDistance;
+                    pt = new ScreenPoint(pt.X + axis.AxisTickToLabelDistance, pt.Y);
                 }
                 //right
                 else if (pt.X >= plotrect.Right)
                 {
                     ha = HorizontalAlignment.Right;
                     va = VerticalAlignment.Middle;
-                    pt.x -= axis.AxisTickToLabelDistance;
+                    pt = new ScreenPoint(pt.X - axis.AxisTickToLabelDistance, pt.Y);
                 }
                 else
                 {
