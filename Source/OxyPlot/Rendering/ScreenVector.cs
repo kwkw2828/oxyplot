@@ -45,7 +45,7 @@ namespace OxyPlot
         /// <summary>
         /// Gets the length.
         /// </summary>
-        public double Length
+        public readonly double Length
         {
             get
             {
@@ -56,7 +56,7 @@ namespace OxyPlot
         /// <summary>
         /// Gets the length squared.
         /// </summary>
-        public double LengthSquared
+        public readonly double LengthSquared
         {
             get
             {
@@ -68,7 +68,7 @@ namespace OxyPlot
         /// Gets the x-coordinate.
         /// </summary>
         /// <value>The x-coordinate.</value>
-        public double X
+        public readonly double X
         {
             get
             {
@@ -80,7 +80,7 @@ namespace OxyPlot
         /// Gets the y-coordinate.
         /// </summary>
         /// <value>The y-coordinate.</value>
-        public double Y
+        public readonly double Y
         {
             get
             {
@@ -151,7 +151,7 @@ namespace OxyPlot
         /// Returns a <see cref="System.String" /> that represents this instance.
         /// </summary>
         /// <returns>A <see cref="System.String" /> that represents this instance.</returns>
-        public override string ToString()
+        public override readonly string ToString()
         {
             return this.x + " " + this.y;
         }
@@ -161,7 +161,7 @@ namespace OxyPlot
         /// </summary>
         /// <param name="other">The point to compare to this instance.</param>
         /// <returns><c>true</c> if the value of the <paramref name="other" /> parameter is the same as the value of this instance; otherwise, <c>false</c>.</returns>
-        public bool Equals(ScreenVector other)
+        public readonly bool Equals(ScreenVector other)
         {
             return this.x.Equals(other.x) && this.y.Equals(other.y);
         }

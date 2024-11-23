@@ -15,7 +15,7 @@ namespace OxyPlot
     /// <summary>
     /// Represents a vector in the data space.
     /// </summary>
-    public struct DataVector : ICodeGenerating, IEquatable<DataVector>
+    public readonly struct DataVector : ICodeGenerating, IEquatable<DataVector>
     {
         /// <summary>
         /// The undefined.

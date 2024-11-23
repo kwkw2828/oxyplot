@@ -15,7 +15,7 @@ namespace OxyPlot
     /// <summary>
     /// Describes a color in terms of alpha, red, green, and blue channels.
     /// </summary>
-    public struct OxyColor : ICodeGenerating, IEquatable<OxyColor>
+    public readonly struct OxyColor : ICodeGenerating, IEquatable<OxyColor>
     {
         /// <summary>
         /// The red component.

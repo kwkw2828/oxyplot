@@ -16,7 +16,7 @@ namespace OxyPlot
     /// <summary>
     /// Represents absolute or relative lengths in data or screen space.
     /// </summary>
-    public struct PlotLength : IEquatable<PlotLength>
+    public readonly struct PlotLength : IEquatable<PlotLength>
     {
         /// <summary>
         /// The unit type

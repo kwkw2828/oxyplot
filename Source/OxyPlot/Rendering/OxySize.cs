@@ -16,7 +16,7 @@ namespace OxyPlot
     /// <summary>
     /// Describes the size of an object.
     /// </summary>
-    public struct OxySize : IFormattable, IEquatable<OxySize>
+    public readonly struct OxySize : IFormattable, IEquatable<OxySize>
     {
         /// <summary>
         /// Empty Size.

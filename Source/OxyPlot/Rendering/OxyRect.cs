@@ -16,7 +16,7 @@ namespace OxyPlot
     /// <summary>
     /// Describes the width, height, and point origin of a rectangle.
     /// </summary>
-    public struct OxyRect : IFormattable, IEquatable<OxyRect>
+    public readonly struct OxyRect : IFormattable, IEquatable<OxyRect>
     {
         /// <summary>
         /// Gets an infinitely large <see cref="OxyRect"/> starting at (0,0).

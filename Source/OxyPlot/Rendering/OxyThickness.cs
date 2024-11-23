@@ -15,7 +15,7 @@ namespace OxyPlot
     /// <summary>
     /// Describes the thickness of a frame around a rectangle. Four <see cref="System.Double" /> values describe the left, top, right, and bottom sides of the rectangle, respectively.
     /// </summary>
-    public struct OxyThickness : ICodeGenerating
+    public readonly struct OxyThickness : ICodeGenerating
     {
         /// <summary>
         /// The bottom.
